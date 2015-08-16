@@ -30,11 +30,15 @@ animationDataUse.getBeginIndex = function(id,index)
 end
 
 animationDataUse.getAnimationFile = function(id)
-	
+print("=============id",id)
+	if id < 0 or id == nil then
+		print("========该怪物动作文件不存在")
+	end
 	return animationDataUse.getAnimationById(id).filename
 end
 
 animationDataUse.getAnimationById = function(id)
+print("==============getAnimationById")
 	if id < 0 then
 		print("========该怪物动作不存在")
 	end
@@ -42,27 +46,28 @@ animationDataUse.getAnimationById = function(id)
 end
 
 animationDataUse.getAttackAnimation = function(id)
-	return animationDataUse.getAnimation(id,bioState.attack)
+	return animationDataUse.getAnimation(id,bioAction.attack)
 end
 animationDataUse.getSkillAnimation = function(id)
-	return animationDataUse.getAnimation(id,bioState.skill)
+	return animationDataUse.getAnimation(id,bioAction.skill)
 end
 animationDataUse.getStandAnimation = function(id)
-	return animationDataUse.getAnimation(id,bioState.stand)
+	return animationDataUse.getAnimation(id,bioAction.stand)
 end
 animationDataUse.getDieAnimation = function(id)
-	return animationDataUse.getAnimation(id,bioState.die)
+	return animationDataUse.getAnimation(id,bioAction.die)
 end
 animationDataUse.getBeHitAnimation = function(id)
-	return animationDataUse.getAnimation(id,bioState.behit)
+	return animationDataUse.getAnimation(id,bioAction.behit)
 end
 
 animationDataUse.getAnimation = function(id,actionType)
-	local data = animationDataUse.getAnimationById(id).animation
-	local start = animationDataUse.getBeginIndex(id,actionType)
-	local end_ = start + data[actionType] * interval
+	local fileName = animationDataUse.getAnimationFile(id)
+	local data = animationDataUse.getAnimationById(id).action
+	local start = data[actionType][1]
+	local end_ = data[actionType][2]
 	print("===========开始帧结束帧:",start,end_)
-	return start,end_
+	return fileName,start,end_
 end
 
 

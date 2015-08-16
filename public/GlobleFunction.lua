@@ -32,7 +32,7 @@ function sendDefenceMessage(roleId)
 	sendMessage(prot)
 end
 
-function sendSkillMessage(roleId,,skillId)
+function sendSkillMessage(roleId,skillId)
 	print("============释放技能")
 	local prot = {}
 	prot.type = Bag
@@ -40,4 +40,41 @@ function sendSkillMessage(roleId,,skillId)
 	prot.monsterId = monsterId
 	prot.skillId = skillId
 	sendMessage(prot)
+end
+
+--播放一次性动画
+function playAniamationOnce(target,fileName,startFrame,endFrame,callback,x,y)
+	print("=============fileName",fileName)
+	print("--------------s e frame",startFrame,endFrame)
+	local node = cc.CSLoader:createNode(fileName)
+    local action = cc.CSLoader:createTimeline(fileName)
+    node:runAction(action)
+    action:gotoFrameAndPlay(startFrame,endFrame,false)
+
+    node:setPosition(x,y)
+    target:addChild(node)
+
+    if callback ~= nil then
+    	print("===============callback1")
+    	local function onFrameEvent(frame)
+    		print("===============callback2")
+    		node:removeFromParent()
+        	callback()
+    	end
+    	action:setFrameEventCallFunc(onFrameEvent)
+    end
+     
+end
+
+--播放永久性动画
+function playAniamationForever(target,fileName,startFrame,endFrame,x,y)
+	print("=============fileName",fileName)
+	print("--------------s e frame",startFrame,endFrame)
+	local node = cc.CSLoader:createNode(fileName)
+    local action = cc.CSLoader:createTimeline(fileName)
+    node:runAction(action)
+    action:gotoFrameAndPlay(startFrame,endFrame,true)
+    node:setPosition(x,y)
+    target:addChild(node)
+    return node
 end

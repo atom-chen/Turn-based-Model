@@ -5,11 +5,12 @@ bioDirectionType =
 	left = 2,
 }
 --状态
-bioState = 
+bioAction = 
 {
 	die     = 1 ,
     behit   = 2 ,
     attack  = 3 ,
     skill   = 4 ,
     stand   = 5 ,
+    defence = 6 ,
 }

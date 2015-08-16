@@ -1,13 +1,13 @@
 local messgaeManager_ = nil
 
-local messgaeManager = class("messagemanager",function()
+local messageManager = class("messagemanager",function()
 	return cc.Node:create()
 end)
 
 function messageManager:getInstance()
 	if messageManager_ == nil then
 		messageManager_ = messageManager.new()
-		messageManager:retain()
+		messageManager_:retain() 
 	end
 	return messageManager_
 end
@@ -30,7 +30,7 @@ function messageManager:recMessage(prot)
 	table.insert(self.messageList, prot)
 end
 --删除消息
-function messgaeManager:deleteMessage()
+function messageManager:deleteMessage()
 	table.remove(self.messageList,1)
 end
 function messageManager:getMessageList()

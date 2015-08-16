@@ -16,19 +16,18 @@ function roleManager:ctor()
 	--当前怪物组
 	self.roleList = {}
 end
-
+--初始化主角
 function roleManager:getRoleList()
 	return self.roleList
 end
---获取当前战斗中的怪物
+--获取当前战斗中的主角
+--@id 动态id
 function roleManager:getCurRoleById(id)
-	for k,v in ipairs(self.roleList) do
-		if v.id == id then
-			return v
-		end
+	if id < 0 or id == nil then
+		print("===============并没有此角色")
 	end
-	print("===============并没有此角色")
-	return nil
+	
+	return self.roleList[id]
 end
 
 return roleManager

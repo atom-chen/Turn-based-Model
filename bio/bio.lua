@@ -3,10 +3,12 @@ require("config.bioConfig")
 local bio = class("bio",function()
 	return cc.Sprite:create()
 end)
-
+--@x,y  	生物位置
+--@id       静态id
+--@type     类型  暂时没卵用
 function bio:ctor(x,y,id,type)
 	self:setPosition(cc.p(x,y))
-	self.id = id 					--动态id
+	self.id = id 					--静态id
 	self.type = type
 	local function onNodeEvent(event)
         if event == "cleanup" then
