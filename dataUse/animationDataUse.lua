@@ -1,7 +1,6 @@
 --动作数据接口
-require("config.animationConfig")
+require("staticData.action")
 require("config.bioConfig")
-local interval = 10
 
 animationDataUse = 
 {
