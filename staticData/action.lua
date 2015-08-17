@@ -17,7 +17,7 @@ animation =
 		[2001] = 
 		{
 			name = "",
-			filename = "boss_.csb",
+			filename = "boss_1.csb",
 			action = {
 						[bioAction.die] = {0,21},
 						[bioAction.behit] = {30,61},

@@ -45,7 +45,7 @@ end
 --播放一次性动画
 function playAniamationOnce(target,fileName,startFrame,endFrame,callback,x,y,isRemove_)
 	local isRemove = true
-	if not isRemove_ then
+	if isRemove_ == false then
 		isRemove = false
 	end
 	print("=============fileName",fileName)

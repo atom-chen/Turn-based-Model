@@ -17,11 +17,7 @@ local function main()
    	
    	local layer = require("GameScene"):create()
     local sceneGame =  cc.Scene:create()
-    sceneGame:addChild(layer)  
-
-
-    --测试
-    local test = require("myControler.test"):create()
+    sceneGame:addChild(layer) 
 
    	if cc.Director:getInstance():getRunningScene() then
         cc.Director:getInstance():replaceScene(sceneGame)

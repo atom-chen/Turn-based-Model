@@ -10,12 +10,12 @@ skill =
 	{
 		name = "急光斩",
 		filename = "boss1_skill_1.csb",
-		frame = {0,31},
+		frame = {0,41},
 	},
 	[5002] = 
 	{
 		name = "龙炎",
 		filename = "boss1_skill_1.csb",
-		frame = {40,81},
+		frame = {50,101},
 	},
 }

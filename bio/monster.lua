@@ -55,10 +55,7 @@ function monster:die(callback)
 	playAniamationOnce(self,fileName,startFrame,endFrame,callback,0,0)
 end
 --对敌方释放攻击性技能
-function monster:skillToAttack(skillId,callback,CombineView.lua
-EllipticRotaryTable.lua
-RouletteModel.lua
-ScrollMenu.lua)
+function monster:skillToAttack(skillId,callback,target)
 	print("=========skillToAttack")
 	self:releaseSkill(skillId,callback,display.cx,display.cy)
 end
