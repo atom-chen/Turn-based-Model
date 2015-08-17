@@ -42,12 +42,14 @@ end
 
 --创建主角
 function fightScene:createRole()
-
+    local role = require("bio.role"):create(480,580)
+    role:beHitShow()
+    self.mainLayer:addChild(role,200)
 end
 
 --创建操作
 function fightScene:createHandle()
-    print("==================node1")
+    print("==================node1")    
 
     local node = cc.CSLoader:getInstance():createNodeWithFlatBuffersFile("handle.csb")  --ccs.GUIReader:getInstance():widgetFromBinaryFile("Layer.csb") 
     self.gestureLayer:addChild(node)
