@@ -54,6 +54,21 @@ function monster:die(callback)
 	local fileName,startFrame,endFrame = animationDataUse.getDieAnimation(self:getId())
 	playAniamationOnce(self,fileName,startFrame,endFrame,callback,0,0)
 end
+--对敌方释放攻击性技能
+function monster:skillToAttack(skillId,callback,CombineView.lua
+EllipticRotaryTable.lua
+RouletteModel.lua
+ScrollMenu.lua)
+	print("=========skillToAttack")
+	self:releaseSkill(skillId,callback,display.cx,display.cy)
+end
+
+--对我方使用辅助性技能
+function monster:skillToSelfPart(skillId,callback,x,y)
+	self:releaseSkill(skillId,callback,x,y)
+end
+
+
 --获取怪物动作动画文件名以及帧
 
 

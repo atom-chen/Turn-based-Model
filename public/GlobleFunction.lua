@@ -43,7 +43,11 @@ function sendSkillMessage(roleId,skillId)
 end
 
 --播放一次性动画
-function playAniamationOnce(target,fileName,startFrame,endFrame,callback,x,y)
+function playAniamationOnce(target,fileName,startFrame,endFrame,callback,x,y,isRemove_)
+	local isRemove = true
+	if not isRemove_ then
+		isRemove = false
+	end
 	print("=============fileName",fileName)
 	print("--------------s e frame",startFrame,endFrame)
 	local node = cc.CSLoader:createNode(fileName)
@@ -53,16 +57,19 @@ function playAniamationOnce(target,fileName,startFrame,endFrame,callback,x,y)
 
     node:setPosition(x,y)
     target:addChild(node)
-
-    if callback ~= nil then
-    	print("===============callback1")
-    	local function onFrameEvent(frame)
-    		print("===============callback2")
-    		node:removeFromParent()
-        	callback()
-    	end
-    	action:setFrameEventCallFunc(onFrameEvent)
-    end
+    
+	print("===============callback1")
+	local function onFrameEvent(frame)
+		print("===============callback2")
+		if isRemove then
+			node:removeFromParent()
+		end
+		if callback ~= nil then
+			callback()
+		end
+    	
+	end
+	action:setFrameEventCallFunc(onFrameEvent)
      
 end
 

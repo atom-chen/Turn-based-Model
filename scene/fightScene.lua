@@ -77,8 +77,9 @@ function fightScene:createHandle()
         if event == ccui.TouchEventType.ended then
             print("==================按钮按下")
             local function callback()
-                print("========执行站立")
+                print("========释放技能")
                 self.monster:stand()
+                self.monster:skillToAttack(5002)
             end
             self.monster:skill(callback)
         end

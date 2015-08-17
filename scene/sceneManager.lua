@@ -37,6 +37,7 @@ end
     MsgText_Layer = 700,    --飘字层
 ]]
 function sceneManager:getlayer(index)
+	print("==========获取层",index)
 	if self.activeScene == nil then
 		return nil
 	end

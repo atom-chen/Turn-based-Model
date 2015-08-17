@@ -23,10 +23,11 @@ end
 
 --释放技能
 function bio:releaseSkill(skillId,callback,x,y)
-	require("dataUse.skillDatause")
+	require("dataUse.skillDataUse")
 	local target = require("scene.sceneManager"):getInstance():getlayer(SubUI_Layer)
-	local skillData = animationDataUse.getSkillAnimation(skillId)
-	playAniamationOnce(target,skillData,callback,x,y)
+	local filename,startFrame,endFrame = skillDataUse.getSkillAnimation(skillId)
+	print("======",skillData)
+	playAniamationOnce(target,filename,startFrame,endFrame,callback,x,y)
 end
 
 -- -
